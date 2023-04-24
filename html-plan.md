@@ -25,4 +25,9 @@
 ## **footer** (.footer)
     - 2 divs
       - div 01 - (.footer-logo)
+        - image logo small
       - div 02 - (.copyright)
+        - p - (.company-name)
+          - copyright unicode icon on <sup> tag
+        - p - (.developer)
+          - unicode icon on span - (.heart-icon)
