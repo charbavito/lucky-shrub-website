@@ -10,23 +10,23 @@ body{
     background-repeat: no-repeat, no-repeat;
     background-size: contain;
     backdrop-filter: blur(5px);
-    background-position: -12em, 108%;
+    background-position: -5em, 103%;
     background-attachment: fixed;
     color: #808080;
-    // height: 100vh;
 }
 
 .container {
     background-color: #fcfcfc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    box-shadow: 0px 0px 8px #aaa;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    align-content: space-between;
     margin: auto;
-    box-shadow: 0px 0px 8px #aaaaaa;
     width: 95%;
-    max-width: 140em;
-    min-width: 30em;
     height: 100vh;
+    min-width: 30em;
+    max-width: 124em;
+    transition: all 300ms ease;
 
     .header{
         // background-color: #1575;
@@ -41,19 +41,21 @@ body{
             max-height: 20em;
         }
         .menu{
-            min-width: 100%;
-            padding: 2em 0;
+            width: 50%;
+            min-width: 70%;
+            max-width: 10em;
+            // padding: 2em 0;
+            font-size: 1.5em;
 
             .menu-list{
-                // background-color: #157;
+                // background-color: #1575;
                 display: flex;
                 justify-content: space-evenly;
-                min-width: 100%;
 
                 .menu-items{
                     list-style: none;
-                    border-left: solid 0.2em #808080;
-                    border-right: solid 0.2em #808080;
+                    border-left: solid 0.1em #808080;
+                    border-right: solid 0.1em #808080;
                     padding: 0 0.5em;
                 }
             }
@@ -61,26 +63,61 @@ body{
     }
 
     .main{
-        background-color: #0003;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        grid-template-rows: 0.4fr 0.6fr;
         color: #fff;
-        padding: 2em 3em;
+        margin: 1em;
+        
+        .card-commons{
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.25em;
+            margin-left: 1em;
+            box-shadow: 0 0 0.75em #0005;
+        }
+        .blurred-bg{
+            background-color: #684b4b75;
+            backdrop-filter: blur(1px);
+            position: absolute;
+            inset: 0em;
+            margin: 1em;
+            padding: 1em;
+            border-radius: 1.5em 0.25em 0.25em 0.25em;
+            box-shadow: 0 0 0.5em #0008;
+        }
 
-        .cards{
-            padding-top: 1em;
-            display: flex;
-            align-items: center;
+        .promo-card{
+            background-image: url(../images/river-pexels.jpg);
+            margin-left: 0;
+        }
+        .cards-template{
+            display: grid;
+            grid-template-columns: repeat(3, minmax(30%, 1fr));
+            justify-content: space-evenly;
+            padding-top: 2em;
+            
+            .card-01{
+                background-image: url(../images/terrarium-pexels.jpg);
+                margin-left: 0;
+            }
+            .card-02{
+                background-image: url(../images/couple-001-pexels.jpg);
+            }
+            .card-03{
+                background-image: url(../images/plant-001-pexels.jpg);
+            }
         }
     }
 
     .footer{
         // background-color: #5725;
         display: flex;
+        justify-content: center;
         min-width: fit-content;
         align-items: center;
-        padding-top: 1em;
+        padding: 1em 0;
         
         .footer-logo{
             img{
@@ -93,11 +130,50 @@ body{
     }
 }
 
-@media (max-width: 30em){
+//mobile response
+@media (max-width: 500px){
+    .container {
+        width: 100%;
+        transition: all 300ms ease;
+        box-shadow: none;
+        
+        .header{
+            .menu{
+                min-width: 20em;
+                .menu-list{
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    margin: auto;
+                }
+            }
+        }
+        
+        .main{
+            grid-template-rows: 0.25fr 0.75fr;
+            
+            transition: all 1s ease;
+            .cards-template{
+                grid-template-columns: 1fr;
+                transition: all 1s ease;
+
+                .card-02{
+                    margin: 1em 0 0 0;
+
+                }
+                .card-03{
+                    margin: 1em 0 0 0;
+
+                }
+            }
+
+        }
+    }
+}  
+
+@media (max-width: 300px){
     body{
         background-image: none;
     }
-    .container {
-        width: 100%;
-    }
+    
 }   
