@@ -88,39 +88,52 @@ body{
             .card-description{
                 font-size: 1.5em;
                 padding: 0 3em 0em 1em;
-                margin-top: 1em;
+                margin-top: 0.2em;
                 font-weight: 400;
-                
-            }
-            .card-description-1200{
-                display: none;
+                overflow: hidden;
+                height: 70%;
             }
             .card-description-promo{
                 font-size: 1.5em;
                 padding: 0 15em 0 1em;
-                margin-top: 1em;
             }
-            .card-description-promo-1200{
+            .card-description-promo-600{
                 display: none;
             }
-            .card-description-promo-500{
+            .card-description-600{
                 display: none;
             }
-            .card-description-500{
-                display: none;
-            }
-            .more{
-                // background-color: #dad;
-                color: #3af;
+
+            .btn-promo{
+                color: #388;
                 position: absolute;
-                right: 0.5em;
-                bottom: 0.25em;
+                right: 0;
+                bottom: 0;
+                margin-right: 2em;
+                margin-bottom: 2em;
+                cursor: pointer;
+                padding: 0.5em 3em;
+                font-weight: 700;
+                border: none;
+                border-radius: 0.5em;
+            }
+
+            
+            .more{
+                background-color: #fcfcfc;
+                color: #388;
+                clip-path: url(#svg-path);
+                position: absolute;
+                right: 0;
+                bottom: 0;
                 font-size: 1.5em;
                 font-weight: 700;
                 letter-spacing: 0.15em;
                 text-decoration: none;
-
+                padding: 0.1em 0.5em 0.1em 4em;
+                margin: -1em -0.7em -0.7em 0;                
             }
+
         }
         .blurred-bg{
             background-color: #684b4b65;
@@ -131,9 +144,61 @@ body{
             padding: 1em;
             border-radius: 1.5em 0.25em 0.25em 0.25em;
             box-shadow: 0 0 0.5em #0008;
-            overflow: hidden;
         }
-
+        .blurred-bg-promo{
+            background-color: #684b4b65;
+            backdrop-filter: blur(1px);
+            position: absolute;
+            inset: 0em;
+            margin: 1em;
+            padding: 1em;
+            border-radius: 1.5em 0.25em 0.25em 0.25em;
+            box-shadow: 0 0 0.5em #0008;
+        }
+        .blurred-bg-promo::after{
+            position: absolute;
+            content: '';
+            width: 24em;
+            height: 15em;
+            top: 0;
+            right: 0;
+            border-top: solid 1px #fff;
+            border-right: solid 1px #fff;
+            border-radius: 0.25em 0 0 0;
+        }
+        .blurred-bg-promo::before{
+            position: absolute;
+            content: '';
+            width: 22.5em;
+            height: 12.5em;
+            bottom: 0;
+            left: 0;
+            border-left: solid 1px #fff;
+            border-bottom: solid 1px #fff;
+            border-radius: 0 0 0 0.25em;
+        }
+        .blurred-bg::after{
+            position: absolute;
+            content: '';
+            width: 2em;
+            height: 2em;
+            top: 0;
+            right: 0;
+            border-top: solid 1px #fff;
+            border-right: solid 1px #fff;
+            border-radius: 0.25em 0 0 0;
+        }
+        .blurred-bg::before{
+            position: absolute;
+            content: '';
+            width: 2em;
+            height: 2em;
+            bottom: 0;
+            left: 0;
+            border-left: solid 1px #fff;
+            border-bottom: solid 1px #fff;
+            border-radius: 0 0 0 0.25em;
+        }
         .promo-card{
             background-image: url(../images/river-pexels.jpg);
             margin-left: 0;
@@ -143,6 +208,7 @@ body{
             grid-template-columns: repeat(3, minmax(30%, 1fr));
             justify-content: space-evenly;
             padding-top: 2em;
+
             
             .card-01{
                 background-image: url(../images/terrarium-pexels.jpg);
@@ -176,37 +242,11 @@ body{
     }
 }
 
-//text ajustments
-@media screen and (max-width: 1200px){
-    .container{
-        .main{
-            .card-commons{
-                .card-description{
-                    display: none;
-                    
-                }
-                .card-description-1200{
-                    display: block;
-                    font-size: 1.5em;
-                    padding: 0 1em;
-                    margin-top: 1em;
-                    font-weight: 400;
-
-                }
-                
-                .card-description-promo-1200{
-                    display: block;
-                    font-size: 1.5em;
-                    margin-top: 1em;
-                    padding: 0 10em 0 1em;
-                }
-            }
-        }
-    }
-}
-
 //mobile response
-@media (max-width: 500px){
+@media (max-width: 600px){
+    body{
+        background-image: none;
+    }
     .container {
         width: 100%;
         box-shadow: none;
@@ -227,13 +267,10 @@ body{
             grid-template-rows: 0.25fr 0.75fr;
 
             .card-commons{
-                .card-description-promo-1200{
+                .card-description{
                     display: none;
                 }
-                .card-description-1200{
-                    display: none;
-                }
-                .card-description-promo-500{
+                .card-description-promo-600{
                     display: block;
                     font-size: 1.5em;
                     padding-left:1em;
@@ -242,7 +279,7 @@ body{
                     font-weight: 400;
                     margin-top: 0;
                 }
-                .card-description-500{
+                .card-description-600{
                     display: block;
                     font-size: 1.5em;
                     font-weight: 400;
@@ -252,26 +289,48 @@ body{
                 .more{
                     display: none;
                 }
+                .btn-promo{
+                    display: none;
+                }
+            }
+            .blurred-bg{
+                border-radius: 1.5em 0.25em;
+            }
+            .blurred-bg-promo{
+                border-radius: 1.5em 0.25em;
+            }
+            .blurred-bg-promo::after{
+                position: absolute;
+                content: '';
+                width: 2em;
+                height: 2em;
+                top: 0;
+                right: 0;
+                border-top: solid 1px #fff;
+                border-right: solid 1px #fff;
+                border-radius: 0.25em 0 0 0;
+            }
+            .blurred-bg-promo::before{
+                position: absolute;
+                content: '';
+                width: 2em;
+                height: 2em;
+                bottom: 0;
+                left: 0;
+                border-left: solid 1px #fff;
+                border-bottom: solid 1px #fff;
+                border-radius: 0 0 0 0.25em;
             }
             .cards-template{
                 grid-template-columns: 1fr;
 
                 .card-02{
                     margin: 1em 0 0 0;
-
                 }
                 .card-03{
                     margin: 1em 0 0 0;
                 }
             }
-
         }
     }
-}  
-
-@media (max-width: 300px){
-    body{
-        background-image: none;
-    }
-    
-}   
+} 
