@@ -49,7 +49,7 @@ body{
             max-width: 10em;
             font-size: 1.8em;
             font-weight: 500;
-            padding-top: 1em;
+            padding: 1.5em 0;
             text-transform: uppercase;
 
             .menu-list{
@@ -70,7 +70,7 @@ body{
         display: grid;
         grid-template-rows: 0.4fr 0.6fr;
         color: #fff;
-        margin: 2em 1em;
+        margin:0 1em;
         
         .card-commons{
             position: relative;
@@ -238,6 +238,12 @@ body{
         }
         .copyright{
             padding-left: 1em;
+            .company-name{
+                font-size: 1.5em;
+            }
+            .developer{
+                font-size: 1.1em;
+            }
         }
     }
 }
@@ -323,7 +329,7 @@ body{
             }
             .cards-template{
                 grid-template-columns: 1fr;
-
+                padding-top: 1em;
                 .card-02{
                     margin: 1em 0 0 0;
                 }

@@ -50,7 +50,7 @@ body {
   max-width: 10em;
   font-size: 1.8em;
   font-weight: 500;
-  padding-top: 1em;
+  padding: 1.5em 0;
   text-transform: uppercase;
 }
 .container .header .menu .menu-list {
@@ -67,7 +67,7 @@ body {
   display: grid;
   grid-template-rows: 0.4fr 0.6fr;
   color: #fff;
-  margin: 2em 1em;
+  margin: 0 1em;
 }
 .container .main .card-commons {
   position: relative;
@@ -228,6 +228,12 @@ body {
 .container .footer .copyright {
   padding-left: 1em;
 }
+.container .footer .copyright .company-name {
+  font-size: 1.5em;
+}
+.container .footer .copyright .developer {
+  font-size: 1.1em;
+}
 
 @media (max-width: 600px) {
   body {
@@ -304,6 +310,7 @@ body {
   }
   .container .main .cards-template {
     grid-template-columns: 1fr;
+    padding-top: 1em;
   }
   .container .main .cards-template .card-02 {
     margin: 1em 0 0 0;
