@@ -29,39 +29,114 @@ body{
     height: 100vh;
     min-width: 30em;
     max-width: 124em;
-    transition: all 300ms ease;
-
+    
     .header{
         display: flex;
         width: 100%;
         flex-direction: column;
         align-items: center;
         padding-top: 1em;
-
+        
         .header-logo{
             align-self: center;
             max-width: 10em;
             max-height: 20em;
         }
         .menu{
-            width: 50%;
             min-width: 70%;
             max-width: 10em;
             font-size: 1.8em;
-            font-weight: 500;
+            font-weight: 400;
             padding: 1.5em 0;
             text-transform: uppercase;
-
+            
             .menu-list{
                 display: flex;
                 justify-content: space-evenly;
-
+                
                 .menu-items{
+                    position: relative;
                     list-style: none;
-                    border-left: solid 0.1em #808080;
-                    border-right: solid 0.1em #808080;
-                    padding: 0 0.3em;
+                    padding: 0 0.4em;
+                    a{
+                        text-decoration: none;
+                        color: #808080;
+                    }
                 }
+                .menu-items:hover{
+                    color: #388;
+                    font-weight: 500;
+                    letter-spacing: 0.1em;
+                    transition: all 500ms ease;
+                    padding: 0;
+                    a{
+                        color: #388;
+                    }
+                }
+                .menu-items span{
+                    position: absolute;
+                    display: block;
+                    background-color: #808080;
+                }
+
+    //menu itens animation effect
+                .menu-items span:nth-child(2){
+                    left: 0;
+                    top: 0;
+                    width: 0.05em;
+                    height: 100%;
+                    transform: scaleY(1);
+                    transition: transform 500ms ease;
+                    transform-origin: bottom;
+                }
+                .menu-items:hover span:nth-child(2){
+                    transform: scaleY(0);
+                    transition: transform 500ms ease;
+                    transform-origin: top;
+                }
+                .menu-items span:nth-child(3){
+                    right: 0;
+                    top: 0;
+                    width: 0.05em;
+                    height: 100%;
+                    transform: scaleY(1);
+                    transition: transform 500ms ease;
+                    transform-origin: top;
+                }
+                .menu-items:hover span:nth-child(3){
+                    transform: scaleY(0);
+                    transition: transform 500ms ease;
+                    transform-origin: bottom;
+                }
+                .menu-items span:nth-child(4){
+                    right: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 0.05em;
+                    transform: scaleX(0);
+                    transition: transform 500ms ease;
+                    transform-origin: left;
+                }
+                .menu-items:hover span:nth-child(4){
+                    transform: scaleX(1);
+                    transition: transform 500ms ease;
+                    transform-origin: right;
+                }
+                .menu-items span:nth-child(5){
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 0.05em;
+                    transform: scaleX(0);
+                    transition: transform 500ms ease;
+                    transform-origin: right;
+                }
+                .menu-items:hover span:nth-child(5){
+                    transform: scaleX(1);
+                    transition: transform 500ms ease;
+                    transform-origin: left;
+                }
+                
             }
         }
     }
@@ -85,40 +160,55 @@ body{
                 font-size: 2em;
                 font-weight: 700;
             }
-            .card-description{
+            .card-description-full{
                 font-size: 1.5em;
+                font-weight: 400;
                 padding: 0 3em 0em 1em;
                 margin-top: 0.2em;
-                font-weight: 400;
                 overflow: hidden;
                 height: 70%;
             }
-            .card-description-promo{
+            .card-description-promo-full{
                 font-size: 1.5em;
                 padding: 0 15em 0 1em;
             }
-            .card-description-promo-600{
+        
+    // 'nones' for mobile purpose
+            .card-description-promo-mobile{
                 display: none;
             }
-            .card-description-600{
+            .card-description-mobile{
                 display: none;
             }
 
             .btn-promo{
+                cursor: pointer;
+                background-color: #f7f7f7;
                 color: #388;
+                width: 12em;
                 position: absolute;
                 right: 0;
                 bottom: 0;
                 margin-right: 2em;
                 margin-bottom: 2em;
-                cursor: pointer;
-                padding: 0.5em 3em;
-                font-weight: 700;
-                border: none;
+                padding: 0.5em;
                 border-radius: 0.5em;
+                transition: all 750ms ease;
+                font-weight: 700;
+                font-size: 1.5em;
+                text-align: center;
+                letter-spacing: 0.1em;
+                text-decoration: none;
+            }
+            .btn-promo:hover{
+                letter-spacing: 0.25em;
+                font-size: 1.65em;
             }
 
-            
+            .svg-defs{
+                height: 0;
+            }
+
             .more{
                 background-color: #fcfcfc;
                 color: #388;
@@ -128,36 +218,55 @@ body{
                 bottom: 0;
                 font-size: 1.5em;
                 font-weight: 700;
+                text-align: center;
                 letter-spacing: 0.15em;
                 text-decoration: none;
                 padding: 0.1em 0.5em 0.1em 4em;
                 margin: -1em -0.7em -0.7em 0;                
+                transition: all 500ms ease;
             }
-
+            .more:hover{
+                letter-spacing: 0.4em;
+                padding: 0.1em 0.5em 0.1em 3em;
+                font-size: 1.7em;
+            }
         }
         .blurred-bg{
             background-color: #684b4b65;
             backdrop-filter: blur(1px);
             position: absolute;
-            inset: 0em;
+            inset: 0;
             margin: 1em;
             padding: 1em;
             border-radius: 1.5em 0.25em 0.25em 0.25em;
             box-shadow: 0 0 0.5em #0008;
+            transition: margin 500ms ease;
+        }
+        .blurred-bg:hover{
+            margin: 0.5em;
+            .more{
+                margin: -1em -0.35em -0.35em 0;
+            }
         }
         .blurred-bg-promo{
             background-color: #684b4b65;
             backdrop-filter: blur(1px);
             position: absolute;
-            inset: 0em;
+            inset: 0;
             margin: 1em;
             padding: 1em;
             border-radius: 1.5em 0.25em 0.25em 0.25em;
             box-shadow: 0 0 0.5em #0008;
+            transition: margin 500ms ease;
         }
+        .blurred-bg-promo:hover{
+            margin: 0.5em;
+        }
+
+    // cards corners lines
         .blurred-bg-promo::after{
-            position: absolute;
             content: '';
+            position: absolute;
             width: 24em;
             height: 15em;
             top: 0;
@@ -199,16 +308,18 @@ body{
             border-bottom: solid 1px #fff;
             border-radius: 0 0 0 0.25em;
         }
+
+    // background card images
         .promo-card{
             background-image: url(../images/river-pexels.jpg);
             margin-left: 0;
         }
+
         .cards-template{
             display: grid;
             grid-template-columns: repeat(3, minmax(30%, 1fr));
             justify-content: space-evenly;
             padding-top: 2em;
-
             
             .card-01{
                 background-image: url(../images/terrarium-pexels.jpg);
@@ -224,7 +335,6 @@ body{
     }
 
     .footer{
-        // background-color: #5725;
         display: flex;
         justify-content: center;
         min-width: fit-content;
@@ -238,11 +348,17 @@ body{
         }
         .copyright{
             padding-left: 1em;
+
             .company-name{
                 font-size: 1.5em;
             }
             .developer{
                 font-size: 1.1em;
+                display: inline;
+            }
+            .charbavito-link{
+                font-size: 1.3em;
+                color: #808080;
             }
         }
     }
@@ -252,89 +368,104 @@ body{
 @media (max-width: 600px){
     body{
         background-image: none;
-    }
-    .container {
-        width: 100%;
-        box-shadow: none;
         
-        .header{
-            .menu{
-                min-width: 20em;
-                .menu-list{
-                    display: flex;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    margin: auto;
-                }
-            }
-        }
-        
-        .main{
-            grid-template-rows: 0.25fr 0.75fr;
+        .container {
+            width: 100%;
+            box-shadow: none;
+            
+            .header{
+                .menu{
+                    min-width: 20em;
+                    
+                    .menu-list{
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
 
-            .card-commons{
-                .card-description{
-                    display: none;
-                }
-                .card-description-promo-600{
-                    display: block;
-                    font-size: 1.5em;
-                    padding-left:1em;
-                    padding-right: 0;
-                    margin-top: 1em;
-                    font-weight: 400;
-                    margin-top: 0;
-                }
-                .card-description-600{
-                    display: block;
-                    font-size: 1.5em;
-                    font-weight: 400;
-                    padding-left: 1em;
-                    padding-right: 0;
-                }
-                .more{
-                    display: none;
-                }
-                .btn-promo{
-                    display: none;
+                        .menu-items span{
+                            display: none;
+                        }
+                        .menu-items:nth-child(n+2)::before{
+                            content: '|';
+                            margin-right: 0.5em;
+                        }
+                    }
                 }
             }
-            .blurred-bg{
-                border-radius: 1.5em 0.25em;
-            }
-            .blurred-bg-promo{
-                border-radius: 1.5em 0.25em;
-            }
-            .blurred-bg-promo::after{
-                position: absolute;
-                content: '';
-                width: 2em;
-                height: 2em;
-                top: 0;
-                right: 0;
-                border-top: solid 1px #fff;
-                border-right: solid 1px #fff;
-                border-radius: 0.25em 0 0 0;
-            }
-            .blurred-bg-promo::before{
-                position: absolute;
-                content: '';
-                width: 2em;
-                height: 2em;
-                bottom: 0;
-                left: 0;
-                border-left: solid 1px #fff;
-                border-bottom: solid 1px #fff;
-                border-radius: 0 0 0 0.25em;
-            }
-            .cards-template{
-                grid-template-columns: 1fr;
-                padding-top: 1em;
-                .card-02{
-                    margin: 1em 0 0 0;
+            
+            .main{
+                grid-template-rows: 0.25fr 0.75fr;
+
+                .card-commons{
+                    .card-description-full{
+                        display: none;
+                    }
+                    .more{
+                        display: none;
+                    }
+                    .btn-promo{
+                        display: none;
+                    }
+
+                    .card-description-promo-mobile{
+                        display: block;
+                        font-size: 1.5em;
+                        padding-left:1em;
+                        padding-right: 0;
+                        margin-top: 1em;
+                        font-weight: 400;
+                        margin-top: 0;
+                        overflow: hidden;
+                        height: 60%;
+                    }
+                    .card-description-mobile{
+                        display: block;
+                        font-size: 1.5em;
+                        font-weight: 400;
+                        padding-left: 1em;
+                        padding-right: 0;
+                        overflow: hidden;
+                        height: 60%;
+                    }
+
                 }
-                .card-03{
-                    margin: 1em 0 0 0;
+                .blurred-bg{
+                    border-radius: 1.5em 0.25em;
+                }
+                .blurred-bg-promo{
+                    border-radius: 1.5em 0.25em;
+                }
+                .blurred-bg-promo::after{
+                    content: '';
+                    position: absolute;
+                    width: 2em;
+                    height: 2em;
+                    top: 0;
+                    right: 0;
+                    border-top: solid 1px #fff;
+                    border-right: solid 1px #fff;
+                    border-radius: 0.25em 0 0 0;
+                }
+                .blurred-bg-promo::before{
+                    content: '';
+                    position: absolute;
+                    width: 2em;
+                    height: 2em;
+                    bottom: 0;
+                    left: 0;
+                    border-left: solid 1px #fff;
+                    border-bottom: solid 1px #fff;
+                    border-radius: 0 0 0 0.25em;
+                }
+                .cards-template{
+                    grid-template-columns: 1fr;
+                    padding-top: 1em;
+                    .card-02{
+                        margin: 1em 0 0 0;
+                    }
+                    .card-03{
+                        margin: 1em 0 0 0;
+                    }
                 }
             }
         }
